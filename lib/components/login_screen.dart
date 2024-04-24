@@ -28,16 +28,73 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 30.0),
-              const TextField(
-                decoration: InputDecoration(
-                  labelText: 'Email',
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Container(
+                  margin: EdgeInsets.all(8.0), // Add margin around the text
+                  child: Text(
+                    'Enter your email address',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16.43,
+                    ),
+                  ),
                 ),
               ),
-              SizedBox(height: 20.0),
-              const TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  labelText: 'Password',
+              Center(
+                child: Container(
+                  width: 352,
+                  height: 56.32,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(24),
+                    border: Border.all(color: Colors.grey.withOpacity(0.3), width: 2),
+                  ),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: '',
+                      contentPadding: EdgeInsets.symmetric(horizontal: 20),
+                      border: InputBorder.none,
+                    ),
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20.0),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Container(
+                  margin: EdgeInsets.all(8.0), // Add margin around the text
+                  child: Text(
+                    'Enter your password',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16.43,
+                    ),
+                  ),
+                ),
+              ),
+              Center(
+                child: Container(
+                  width: 352,
+                  height: 56.32,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(24),
+                    border: Border.all(color: Colors.grey.withOpacity(0.3), width: 2),
+                  ),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: '**************',
+                      contentPadding: EdgeInsets.symmetric(horizontal: 20),
+                      border: InputBorder.none,
+                    ),
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      color: Colors.black,
+                    ),
+                  ),
                 ),
               ),
               SizedBox(height: 30.0),
