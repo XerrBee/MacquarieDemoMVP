@@ -11,12 +11,12 @@ class LoginPage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 40.0),
+          padding: const EdgeInsets.symmetric(horizontal: 40.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              SizedBox(height: 100.0),
+              const SizedBox(height: 100.0),
               const Center(
                   child: Text(
                   'Login',
@@ -27,12 +27,12 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 30.0),
+              const SizedBox(height: 30.0),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
-                  margin: EdgeInsets.all(8.0), // Add margin around the text
-                  child: Text(
+                  margin: const EdgeInsets.all(8.0), // Add margin around the text
+                  child: const Text(
                     'Enter your email address',
                     style: TextStyle(
                       color: Colors.black,
@@ -50,12 +50,12 @@ class LoginPage extends StatelessWidget {
                     border: Border.all(color: Colors.grey.withOpacity(0.3), width: 2),
                   ),
                   child: TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: '',
                       contentPadding: EdgeInsets.symmetric(horizontal: 20),
                       border: InputBorder.none,
                     ),
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18.0,
                       color: Colors.black,
                     ),
@@ -66,8 +66,8 @@ class LoginPage extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
-                  margin: EdgeInsets.all(8.0), // Add margin around the text
-                  child: Text(
+                  margin: const EdgeInsets.all(8.0), // Add margin around the text
+                  child: const Text(
                     'Enter your password',
                     style: TextStyle(
                       color: Colors.black,
@@ -85,26 +85,26 @@ class LoginPage extends StatelessWidget {
                     border: Border.all(color: Colors.grey.withOpacity(0.3), width: 2),
                   ),
                   child: TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: '**************',
                       contentPadding: EdgeInsets.symmetric(horizontal: 20),
                       border: InputBorder.none,
                     ),
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18.0,
                       color: Colors.black,
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 30.0),
+              const SizedBox(height: 30.0),
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: () {
                     // Navigate to forgot password screen
                   },
-                  child: Text(
+                  child: const Text(
                     'Forgot your password?',
                     style: TextStyle(
                       color: Colors.blue,
@@ -123,9 +123,9 @@ class LoginPage extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(17.6),
                     ),
-                    minimumSize: Size(352, 56.32),
+                    minimumSize: const Size(352, 56.32),
                   ),
-                  child: Text(
+                  child: const Text(
                     'Login',
                     style: TextStyle(
                       color: Colors.white,
@@ -135,13 +135,13 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               Center(
                 child: TextButton(
                   onPressed: () {
                     // Navigate to Sign up/Register screen
                   },
-                  child: Text(
+                  child: const Text(
                     'First time here? Sign Up',
                     style: TextStyle(
                       color: Colors.blue,
@@ -150,7 +150,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
               ),
-              Center(
+              const Center(
                 child: Text(
                   'or',
                   style: TextStyle(
@@ -171,11 +171,11 @@ class LoginPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(17.6),
                       side: BorderSide(color: Colors.grey.withOpacity(0.5), width: 2), // Add border
                     ),
-                    minimumSize: Size(352, 56.32),
+                    minimumSize: const Size(352, 56.32),
                     shadowColor: Colors.grey.withOpacity(0.5),
                     elevation: 1,
                   ),
-                  child: Text(
+                  child: const Text(
                     'Continue with Google',
                     style: TextStyle(
                       color: Colors.black,
