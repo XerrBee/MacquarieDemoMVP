@@ -35,23 +35,32 @@ class HomePage extends StatelessWidget {
                   width: 343,
                   height: 52,
                   decoration: BoxDecoration(
-                    color: const Color(0xFFF0F1F2),
+                    color: Color(0xFFF0F1F2), // Background color
                     borderRadius: BorderRadius.circular(5),
                     border: Border.all(color: Colors.grey.withOpacity(0.3), width: 2),
                   ),
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      hintText: 'Search for...',
-                      contentPadding: EdgeInsets.symmetric(horizontal: 20),
-                      border: InputBorder.none,
-                    ),
-                    style: const TextStyle(
-                      fontSize: 18.0,
-                      color: Colors.black,
-                    ),
+                  child: Row(
+                    children: [
+                      SizedBox(width: 20), // Adjust the width as needed for spacing between the icon and text field
+                      Icon(Icons.search, color: Colors.grey), // Magnifying glass icon
+                      SizedBox(width: 10), // Adjust the width as needed for spacing between the icon and text field
+                      Expanded(
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: 'Search for...',
+                            contentPadding: EdgeInsets.only(left: 10, top: 14, bottom: 14), // Adjust padding to vertically center text
+                            border: InputBorder.none,
+                          ),
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-            ),
+              ),
               
 
               // SizedBox(height: 30.0),
