@@ -140,6 +140,7 @@ class LoginPage extends StatelessWidget {
                 child: TextButton(
                   onPressed: () {
                     // Navigate to Sign up/Register screen
+                    Navigator.pushNamed(context, '/register');
                   },
                   child: const Text(
                     'First time here? Sign Up',
