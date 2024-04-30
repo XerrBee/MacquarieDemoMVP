@@ -54,223 +54,310 @@ class HomePage extends StatelessWidget {
 
               SizedBox(height: 34.0),
 
-              Container(
-                width: 356,
-                height: 90,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: const Color(0xFFF5F5F5),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.4),
-                      spreadRadius: 2,
-                      blurRadius: 9,
-                      offset: const Offset(0, 3),
-                    )
-                  ],
-                ),
-                child: Row(
-                  children: [
-                    // Image with padding
-                    Padding(
-                      padding: EdgeInsets.all(8), // Adjust padding as needed
-                      child: Container(
-                        width: 100, // Adjust the width of the image container
-                        height: 90, // Adjust the height of the image container
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15.0),
-                          image: const DecorationImage(
-                            image: NetworkImage(
-                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDOAoheWgNDU2X_BFypbUqrNhmPD0m72Qifh6JVi8b0g&s',
-                            ), // Provide your image URL here
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ),
-                    // Text
-                    Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 12),
-                        child: const Center(
-                          child: Text(
-                            'Car Park', // Replace 'Category' with your actual category text
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              fontStyle: FontStyle.italic
+              GestureDetector(
+                onTap: () {
+                  // Navigate to coffee page
+                  Navigator.pushNamed(context, '/coffee');
+                },
+                child: Container(
+                  width: 356,
+                  height: 90,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: const Color(0xFFF5F5F5),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.4),
+                        spreadRadius: 2,
+                        blurRadius: 9,
+                        offset: const Offset(0, 3),
+                      )
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      // Image with padding
+                      Padding(
+                        padding: EdgeInsets.all(8), // Adjust padding as needed
+                        child: Container(
+                          width: 100, // Adjust the width of the image container
+                          height: 90, // Adjust the height of the image container
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15.0),
+                            image: const DecorationImage(
+                              image: NetworkImage(
+                                'https://media.istockphoto.com/id/1158013558/photo/cup-of-coffee-with-flowing-milk-on-wooden-background-overhead-shot.jpg?s=612x612&w=0&k=20&c=Eb5FAJtL1wT9Ong_kPDfL089MAbM7BJySpJfL8Kv978=',
+                              ),
+                              fit: BoxFit.cover,
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                      // Text
+                      Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                          child: const Center(
+                            child: Text(
+                              'Coffee', // Replace 'Category' with your actual category text
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                fontStyle: FontStyle.italic
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               SizedBox(height: 34.0),
-              Container(
-                width: 356,
-                height: 90,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: const Color(0xFFF5F5F5),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.4),
-                      spreadRadius: 2,
-                      blurRadius: 9,
-                      offset: const Offset(0, 3),
-                    )
-                  ],
-                ),
-                child: Row(
-                  children: [
-                    // Image with padding
-                    Padding(
-                      padding: EdgeInsets.all(8), // Adjust padding as needed
-                      child: Container(
-                        width: 100, // Adjust the width of the image container
-                        height: 90, // Adjust the height of the image container
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15.0),
-                          image: const DecorationImage(
-                            image: NetworkImage(
-                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDOAoheWgNDU2X_BFypbUqrNhmPD0m72Qifh6JVi8b0g&s',
-                            ), // Provide your image URL here
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ),
-                    // Text
-                    Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 12),
-                        child: const Center(
-                          child: Text(
-                            'Car Park', // Replace 'Category' with your actual category text
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              fontStyle: FontStyle.italic
+              
+              GestureDetector(
+                onTap: () {
+                  // Navigate to the Study Space Page
+                  Navigator.pushNamed(context, '/studyspace');
+                },
+                child: Container(
+                  width: 356,
+                  height: 90,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: const Color(0xFFF5F5F5),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.4),
+                        spreadRadius: 2,
+                        blurRadius: 9,
+                        offset: const Offset(0, 3),
+                      )
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      // Image with padding
+                      Padding(
+                        padding: EdgeInsets.all(8), // Adjust padding as needed
+                        child: Container(
+                          width: 100, // Adjust the width of the image container
+                          height: 90, // Adjust the height of the image container
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15.0),
+                            image: const DecorationImage(
+                              image: NetworkImage(
+                                'https://students.mq.edu.au/__data/assets/image/0009/1175796/1cc-study-space-pink-lounge-900x600.jpg',
+                              ), // Provide your image URL here
+                              fit: BoxFit.cover,
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                      // Text
+                      Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                          child: const Center(
+                            child: Text(
+                              'Study Space',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                fontStyle: FontStyle.italic
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 34.0),
+              GestureDetector(
+                onTap: () {
+                  // Navigate to the Car Park Page
+                  Navigator.pushNamed(context, '/carpark');
+                },
+                child: Container(
+                  width: 356,
+                  height: 90,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: const Color(0xFFF5F5F5),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.4),
+                        spreadRadius: 2,
+                        blurRadius: 9,
+                        offset: const Offset(0, 3),
+                      )
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      // Image with padding
+                      Padding(
+                        padding: EdgeInsets.all(8), // Adjust padding as needed
+                        child: Container(
+                          width: 100, // Adjust the width of the image container
+                          height: 90, // Adjust the height of the image container
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15.0),
+                            image: const DecorationImage(
+                              image: NetworkImage(
+                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDOAoheWgNDU2X_BFypbUqrNhmPD0m72Qifh6JVi8b0g&s',
+                              ), // Provide your image URL here
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ),
+                      // Text
+                      Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                          child: const Center(
+                            child: Text(
+                              'Car Park', // Replace 'Category' with your actual category text
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                fontStyle: FontStyle.italic
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               
               SizedBox(height: 34.0),
-              Container(
-                width: 356,
-                height: 90,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: const Color(0xFFF5F5F5),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.4),
-                      spreadRadius: 2,
-                      blurRadius: 9,
-                      offset: const Offset(0, 3),
-                    )
-                  ],
-                ),
-                child: Row(
-                  children: [
-                    // Image with padding
-                    Padding(
-                      padding: EdgeInsets.all(8), // Adjust padding as needed
-                      child: Container(
-                        width: 100, // Adjust the width of the image container
-                        height: 90, // Adjust the height of the image container
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15.0),
-                          image: const DecorationImage(
-                            image: NetworkImage(
-                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDOAoheWgNDU2X_BFypbUqrNhmPD0m72Qifh6JVi8b0g&s',
-                            ), // Provide your image URL here
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ),
-                    // Text
-                    Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 12),
-                        child: const Center(
-                          child: Text(
-                            'Car Park', // Replace 'Category' with your actual category text
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              fontStyle: FontStyle.italic
+              
+              GestureDetector(
+                onTap: () {
+                  // Navigate to the AskMQ page
+                  Navigator.pushNamed(context, '/askmq');
+                },
+                child: Container(
+                  width: 356,
+                  height: 90,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: const Color(0xFFF5F5F5),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.4),
+                        spreadRadius: 2,
+                        blurRadius: 9,
+                        offset: const Offset(0, 3),
+                      )
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      // Image with padding
+                      Padding(
+                        padding: EdgeInsets.all(8), // Adjust padding as needed
+                        child: Container(
+                          width: 100, // Adjust the width of the image container
+                          height: 90, // Adjust the height of the image container
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15.0),
+                            image: const DecorationImage(
+                              image: NetworkImage(
+                                'https://images.shiksha.com/mediadata/images/1647317902phpCxEo6V.jpeg',
+                              ), // Provide your image URL here
+                              fit: BoxFit.cover,
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                      // Text
+                      Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                          child: const Center(
+                            child: Text(
+                              'AskMQ', // Replace 'Category' with your actual category text
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                fontStyle: FontStyle.italic
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
 
               SizedBox(height: 34.0),
-              Container(
-                width: 356,
-                height: 90,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: const Color(0xFFF5F5F5),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.4),
-                      spreadRadius: 2,
-                      blurRadius: 9,
-                      offset: const Offset(0, 3),
-                    )
-                  ],
-                ),
-                child: Row(
-                  children: [
-                    // Image with padding
-                    Padding(
-                      padding: EdgeInsets.all(8), // Adjust padding as needed
-                      child: Container(
-                        width: 100, // Adjust the width of the image container
-                        height: 90, // Adjust the height of the image container
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15.0),
-                          image: const DecorationImage(
-                            image: NetworkImage(
-                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDOAoheWgNDU2X_BFypbUqrNhmPD0m72Qifh6JVi8b0g&s',
-                            ), // Provide your image URL here
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ),
-                    // Text
-                    Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 12),
-                        child: const Center(
-                          child: Text(
-                            'Car Park', // Replace 'Category' with your actual category text
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              fontStyle: FontStyle.italic
+              
+              GestureDetector(
+                onTap: () {
+                  // Navigate to the Messaging Page
+                  Navigator.pushNamed(context, '/message');
+                },
+                child: Container(
+                  width: 356,
+                  height: 90,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: const Color(0xFFF5F5F5),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.4),
+                        spreadRadius: 2,
+                        blurRadius: 9,
+                        offset: const Offset(0, 3),
+                      )
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      // Image with padding
+                      Padding(
+                        padding: EdgeInsets.all(8), // Adjust padding as needed
+                        child: Container(
+                          width: 100, // Adjust the width of the image container
+                          height: 90, // Adjust the height of the image container
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15.0),
+                            image: const DecorationImage(
+                              image: NetworkImage(
+                                'https://play-lh.googleusercontent.com/c5HiVEILwq4DqYILPwcDUhRCxId_R53HqV_6rwgJPC0j44IaVlvwASCi23vGQh5G3LIZ',
+                              ), // Provide your image URL here
+                              fit: BoxFit.cover,
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                      // Text
+                      Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                          child: const Center(
+                            child: Text(
+                              'Messaging App', // Replace 'Category' with your actual category text
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                fontStyle: FontStyle.italic
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              )
+              ),
               // SizedBox(height: 30.0),
               
               // Add Continue with Google here
