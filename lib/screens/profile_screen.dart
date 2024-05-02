@@ -15,6 +15,13 @@ class _ProfilePageState extends State<ProfilePage> {
   bool _isDarkMode = false;
 
   @override 
+  void initState() {
+    super.initState();
+    // Initialize _isDarkMode with the current value from the ThemeProvider
+    _isDarkMode = Provider.of<ThemeProvider>(context, listen: false).isDarkMode;
+  }
+
+  @override 
   Widget build(BuildContext context) {
    return Scaffold(
     backgroundColor: Theme.of(context).colorScheme.background,
