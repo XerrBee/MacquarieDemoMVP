@@ -185,6 +185,8 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
               ),
+
+              
               // Add Continue with Google here
             ],
           ),
