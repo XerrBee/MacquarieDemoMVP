@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import './bottom_navigation.dart';
+import '../components/bottom_navigation.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -8,11 +8,11 @@ class HomePage extends StatelessWidget {
   @override 
   Widget build(BuildContext context) {
    return Scaffold(
+    backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         title: const Text("Home"),
         titleTextStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0, color: Colors.black),
       ),
-      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 40.0),

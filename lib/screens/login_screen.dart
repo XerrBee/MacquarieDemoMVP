@@ -8,7 +8,7 @@ class LoginPage extends StatelessWidget {
   @override 
   Widget build(BuildContext context) {
    return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 40.0),
