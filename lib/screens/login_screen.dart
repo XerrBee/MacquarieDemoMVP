@@ -32,10 +32,10 @@ class LoginPage extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Container(
                   margin: const EdgeInsets.all(8.0), // Add margin around the text
-                  child: const Text(
+                  child: Text(
                     'Enter your email address',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Theme.of(context).colorScheme.primary,
                       fontSize: 16.43,
                     ),
                   ),
@@ -55,9 +55,9 @@ class LoginPage extends StatelessWidget {
                       contentPadding: EdgeInsets.symmetric(horizontal: 20),
                       border: InputBorder.none,
                     ),
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 18.0,
-                      color: Colors.black,
+                      color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
                 ),
@@ -67,10 +67,10 @@ class LoginPage extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Container(
                   margin: const EdgeInsets.all(8.0), // Add margin around the text
-                  child: const Text(
+                  child: Text(
                     'Enter your password',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Theme.of(context).colorScheme.primary,
                       fontSize: 16.43,
                     ),
                   ),
@@ -90,9 +90,9 @@ class LoginPage extends StatelessWidget {
                       contentPadding: EdgeInsets.symmetric(horizontal: 20),
                       border: InputBorder.none,
                     ),
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 18.0,
-                      color: Colors.black,
+                      color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
                 ),
@@ -185,7 +185,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
               ),
-              
+
               // Add Continue with Google here
             ],
           ),
