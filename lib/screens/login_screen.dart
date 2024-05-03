@@ -17,11 +17,11 @@ class LoginPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               const SizedBox(height: 100.0),
-              const Center(
+              Center(
                   child: Text(
                   'Login',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: Theme.of(context).colorScheme.primary,
                     fontSize: 30.0,
                     fontWeight: FontWeight.bold,
                   ),
@@ -185,7 +185,6 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
               ),
-
               
               // Add Continue with Google here
             ],
