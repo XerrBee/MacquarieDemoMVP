@@ -12,7 +12,8 @@ class HomePage extends StatelessWidget {
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         title: const Text("Home"),
-        titleTextStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0, color: Colors.black),
+        titleTextStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0, color: Theme.of(context).colorScheme.primary),
+        iconTheme: IconThemeData(color: Theme.of(context).colorScheme.primary),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -39,8 +40,9 @@ class HomePage extends StatelessWidget {
                       const SizedBox(width: 10),
                       Expanded(
                         child: TextFormField(
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             hintText: 'Search for...',
+                            hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSurface),
                             contentPadding: EdgeInsets.only(left: 10, top: 14, bottom: 14),
                             border: InputBorder.none,
                           ),

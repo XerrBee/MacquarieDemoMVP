@@ -27,7 +27,8 @@ class _ProfilePageState extends State<ProfilePage> {
     backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         title: const Text("Profile"),
-        titleTextStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0, color: Colors.black),
+        titleTextStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0, color: Theme.of(context).colorScheme.primary),
+        iconTheme: IconThemeData(color: Theme.of(context).colorScheme.primary),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -43,7 +44,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 children: <Widget>[
                   Text(
                     'Dark Mode',
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 18, color: Theme.of(context).colorScheme.primary),
                   ),
                   CupertinoSwitch(
                     value: _isDarkMode,
