@@ -19,16 +19,16 @@ class BottomNavigation extends StatelessWidget {
               offset: Offset(0, 3), 
             ),
           ],
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(20), 
-            topRight: Radius.circular(20), 
-          ),
+          // borderRadius: const BorderRadius.only(
+          //   topLeft: Radius.circular(20), 
+          //   topRight: Radius.circular(20), 
+          // ),
         ),
         child: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(20), 
-            topRight: Radius.circular(20), 
-          ),
+          // borderRadius: const BorderRadius.only(
+          //   topLeft: Radius.circular(20), 
+          //   topRight: Radius.circular(20), 
+          // ),
           child: BottomNavigationBar(
             backgroundColor: Colors.white, // Set the background color of the bar
             elevation: 0, // No elevation for the bar itself
@@ -54,10 +54,10 @@ class BottomNavigation extends StatelessWidget {
                 icon: Icon(Icons.home),
                 label: '',
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.search),
-                label: '',
-              ),
+              // BottomNavigationBarItem(
+              //   icon: Icon(Icons.search),
+              //   label: '',
+              // ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.notifications),
                 label: '',
