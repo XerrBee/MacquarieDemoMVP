@@ -1,9 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  LoginPage({super.key});
+
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  void signIn() async {
+    // Navigator.pushNamed(context, '/home');
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: emailController.text,
+      password: passwordController.text,
+    );
+  }
 
   @override 
   Widget build(BuildContext context) {
@@ -50,6 +62,7 @@ class LoginPage extends StatelessWidget {
                     border: Border.all(color: Colors.grey.withOpacity(0.3), width: 2),
                   ),
                   child: TextFormField(
+                    controller: emailController,
                     decoration: const InputDecoration(
                       hintText: '',
                       contentPadding: EdgeInsets.symmetric(horizontal: 20),
@@ -85,6 +98,7 @@ class LoginPage extends StatelessWidget {
                     border: Border.all(color: Colors.grey.withOpacity(0.3), width: 2),
                   ),
                   child: TextFormField(
+                    controller: passwordController,
                     decoration: const InputDecoration(
                       hintText: '**************',
                       contentPadding: EdgeInsets.symmetric(horizontal: 20),
@@ -115,9 +129,7 @@ class LoginPage extends StatelessWidget {
               ),
               Center(
                 child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/home'); // Navigate to '/home' route
-                  },
+                  onPressed: () => signIn(),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
                     shape: RoundedRectangleBorder(

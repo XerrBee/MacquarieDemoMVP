@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../components/bottom_navigation.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -20,6 +21,8 @@ class _ProfilePageState extends State<ProfilePage> {
     // Initialize _isDarkMode with the current value from the ThemeProvider
     _isDarkMode = Provider.of<ThemeProvider>(context, listen: false).isDarkMode;
   }
+
+  final user = FirebaseAuth.instance.currentUser!;
 
   @override 
   Widget build(BuildContext context) {
@@ -56,8 +59,11 @@ class _ProfilePageState extends State<ProfilePage> {
                       });
                     },
                   ),
+                  
                 ],
               ),
+              SizedBox(height: 10.0,),
+              Text("Logged in as: "+user.email!)
             ],
           ),
         ),

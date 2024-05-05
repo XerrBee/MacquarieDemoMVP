@@ -2,9 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../components/bottom_navigation.dart';
 import '../components/category_card.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  void signOut() {
+    FirebaseAuth.instance.signOut();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +19,12 @@ class HomePage extends StatelessWidget {
         title: const Text("Home"),
         titleTextStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0, color: Theme.of(context).colorScheme.primary),
         iconTheme: IconThemeData(color: Theme.of(context).colorScheme.primary),
+        actions: <Widget>[
+          IconButton(
+            onPressed: signOut,
+            icon: Icon(Icons.logout),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Container(
