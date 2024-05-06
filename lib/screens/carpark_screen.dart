@@ -87,12 +87,12 @@ class CarParkPage extends StatelessWidget {
                 style: TextStyle(
                 fontSize: 30, // Adjust the size as needed
                 fontWeight: FontWeight.bold, // Make it bold
-                color: Colors.black87, // Choose the color you prefer
+                color: Theme.of(context).colorScheme.primary, // Choose the color you prefer
                 ),
               ),
                Container(
                 height: 260, // Adjust the height as needed
-                color: Colors.white, // Set the background color
+                color: Theme.of(context).colorScheme.surface, // Set the background color
                 child: ListView(
                   padding: EdgeInsets.symmetric(horizontal: 10.0), // Add padding
                   scrollDirection: Axis.horizontal,
@@ -101,7 +101,7 @@ class CarParkPage extends StatelessWidget {
                       title: 'Central Courtyard',
                       description: 'Good park',
                       imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8H0K9Jmpmgw7MfuupIMA2f3xId5s9MgZqL-CahFozXw&s',
-                      route: '',
+                      
                       price: '8',
                       ratings: 4.5,
                     ),
@@ -110,7 +110,7 @@ class CarParkPage extends StatelessWidget {
                       title: 'Another Parking Slot',
                       description: 'Hi World',
                       imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8H0K9Jmpmgw7MfuupIMA2f3xId5s9MgZqL-CahFozXw&s',
-                      route: '',
+                      
                       price: '10',
                       ratings: 4.2,
                     ),

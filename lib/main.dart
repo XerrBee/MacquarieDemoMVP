@@ -1,3 +1,4 @@
+import 'package:comp3130/screens/shoppingcart_screen.dart';
 import 'package:comp3130/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
         // '/register': (context) => const RegisterPage(),
         '/profile': (context) => const ProfilePage(),
         '/carpark': (context) => const CarParkPage(),
+        '/shoppingcart': (context) => ShoppingCartPage(),
       }
     );
   }

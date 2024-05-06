@@ -63,7 +63,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ],
               ),
               SizedBox(height: 10.0,),
-              Text("Logged in as: "+user.email!)
+              Text("Logged in as: "+user.email!, style: TextStyle(color: Theme.of(context).colorScheme.primary),)
             ],
           ),
         ),

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../screens/parkingdetail_screen.dart';
+
 class ParkingSlot extends StatelessWidget {
   final String title;
   final String description;
   final String price;
   final String imageUrl;
-  final String route;
   final double ratings;
 
   const ParkingSlot({
@@ -13,7 +14,6 @@ class ParkingSlot extends StatelessWidget {
     required this.description,
     required this.price,
     required this.imageUrl,
-    required this.route,
     required this.ratings,
   });
 
@@ -21,7 +21,18 @@ class ParkingSlot extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, route);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ParkingSlotDetailScreen(
+              title: title,
+              description: description,
+              price: price,
+              imageUrl: imageUrl,
+              ratings: ratings,
+            ),
+          ),
+        );
       },
       child: Container(
         width: 235,
@@ -105,10 +116,7 @@ class ParkingSlot extends StatelessWidget {
                           color: Theme.of(context).colorScheme.primary,
                         ),
                       ),
-                      SizedBox(height: 6),
-                  Row(
-                    children: [
-                      SizedBox(width: 15.0),
+                      SizedBox(width: 6),
                       Icon(Icons.star, color: Colors.yellow),
                       SizedBox(width: 6),
                       Text(
@@ -120,20 +128,6 @@ class ParkingSlot extends StatelessWidget {
                       ),
                     ],
                   ),
-                      Expanded(
-                        child: Align(
-                          alignment: Alignment.centerRight,
-                          child: IconButton(
-                            onPressed: () {
-                              // Implement the add functionality
-                            },
-                            icon: Icon(Icons.add_circle, color: Colors.blue, size: 32),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  
                 ],
               ),
             ),
@@ -143,3 +137,4 @@ class ParkingSlot extends StatelessWidget {
     );
   }
 }
+
