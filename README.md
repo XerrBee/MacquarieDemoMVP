@@ -10,4 +10,4 @@ Comments on how the design of your application differs from your Deliverable 1 d
 Notes on the devices you have used to develop and test your application
 => Pixel 6 Pro API 33
 Any extra information the markers would need to evaluate your work.
-=>
+=>The email address used is test@gmail.com and password is test123

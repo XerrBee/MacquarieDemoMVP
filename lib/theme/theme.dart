@@ -7,6 +7,7 @@ ThemeData lightMode = ThemeData(
     primary: Colors.black,
     secondary: Colors.grey.withOpacity(0.4),
     onSurface: Colors.black,
+    surface: Color(0xFFF5F5F5),
   ),
   useMaterial3: true,
 );
@@ -18,5 +19,6 @@ ThemeData darkMode = ThemeData(
     primary: Colors.white,
     secondary: Colors.grey.withOpacity(0.9),
     onSurface: Colors.black,
+    surface: Color(0xFF424242),
   )
 );

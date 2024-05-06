@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
                   width: 300,
                   height: 52,
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 245, 243, 243),
+                    color: Theme.of(context).colorScheme.surface,
                     borderRadius: BorderRadius.circular(8),
                     border: Border.all(color: Colors.grey.withOpacity(0.3), width: 2),
                   ),
@@ -53,13 +53,13 @@ class HomePage extends StatelessWidget {
                         child: TextFormField(
                           decoration: InputDecoration(
                             hintText: 'Search for...',
-                            hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSurface),
+                            hintStyle: TextStyle(color: Theme.of(context).colorScheme.primary),
                             contentPadding: EdgeInsets.only(left: 10, top: 14, bottom: 14),
                             border: InputBorder.none,
                           ),
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 16.0,
-                            color: Colors.black,
+                            color: Theme.of(context).colorScheme.primary,
                           ),
                         ),
                       ),

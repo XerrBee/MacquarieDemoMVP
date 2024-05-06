@@ -24,7 +24,7 @@ class CategoryCard extends StatelessWidget {
         height: 90,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: const Color(0xFFF5F5F5),
+          color: Theme.of(context).colorScheme.surface,
           boxShadow: [
             BoxShadow(
               color: Theme.of(context).colorScheme.secondary,
@@ -62,7 +62,7 @@ class CategoryCard extends StatelessWidget {
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       fontStyle: FontStyle.italic,
-                      color: Theme.of(context).colorScheme.onSurface,
+                      color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
                 ),

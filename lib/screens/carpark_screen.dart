@@ -32,7 +32,7 @@ class CarParkPage extends StatelessWidget {
                   height: 100,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
-                    color: const Color(0xFFF5F5F5),
+                    color: Theme.of(context).colorScheme.surface,
                     boxShadow: [
                       BoxShadow(
                         color: Theme.of(context).colorScheme.secondary,

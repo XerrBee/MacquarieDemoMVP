@@ -3,17 +3,62 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
+
   final passwordController = TextEditingController();
 
   void signIn() async {
-    // Navigator.pushNamed(context, '/home');
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return const Center(child: CircularProgressIndicator());
+      }
+    );
+
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
       email: emailController.text,
       password: passwordController.text,
+    );
+    Navigator.pop(context);
+    } on FirebaseAuthException catch (e) {
+      Navigator.pop(context);
+      if(e.code == 'user-not-found') {
+        noUser(context);
+      } else if(e.code == 'wrong-password') {
+        wrongPassword(context);
+      }
+    }
+  }
+
+  void noUser(context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return const AlertDialog(
+          title: Text('No user'),
+        );
+      },
+    );
+  }
+
+  void wrongPassword(context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return const AlertDialog(
+          title: Text('wrong password.'),
+        );
+      },
     );
   }
 

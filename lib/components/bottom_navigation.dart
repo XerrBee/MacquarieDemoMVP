@@ -30,7 +30,7 @@ class BottomNavigation extends StatelessWidget {
           //   topRight: Radius.circular(20), 
           // ),
           child: BottomNavigationBar(
-            backgroundColor: Colors.white, // Set the background color of the bar
+            backgroundColor: Theme.of(context).colorScheme.surface, // Set the background color of the bar
             elevation: 0, // No elevation for the bar itself
             onTap: (index) {
               // Navigate to different screens based on the tapped index
@@ -68,7 +68,7 @@ class BottomNavigation extends StatelessWidget {
               return BottomNavigationBarItem(
                 icon: Theme(
                   data: Theme.of(context).copyWith(
-                    iconTheme: IconThemeData(color: Colors.black), // Set icon color to black
+                    iconTheme: IconThemeData(color: Theme.of(context).colorScheme.primary), // Set icon color to black
                   ),
                   child: item.icon,
                 ),
