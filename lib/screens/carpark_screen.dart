@@ -1,3 +1,4 @@
+import 'package:comp3130/components/parkingslot_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../components/bottom_navigation.dart';
@@ -78,6 +79,43 @@ class CarParkPage extends StatelessWidget {
                       ),
                     ],
                   ),
+                ),
+              ),
+              SizedBox(height: 20.0,),
+              Text(
+                'Parking Slot',
+                style: TextStyle(
+                fontSize: 30, // Adjust the size as needed
+                fontWeight: FontWeight.bold, // Make it bold
+                color: Colors.black87, // Choose the color you prefer
+                ),
+              ),
+               Container(
+                height: 260, // Adjust the height as needed
+                color: Colors.white, // Set the background color
+                child: ListView(
+                  padding: EdgeInsets.symmetric(horizontal: 10.0), // Add padding
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                    ParkingSlot(
+                      title: 'Central Courtyard',
+                      description: 'Good park',
+                      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8H0K9Jmpmgw7MfuupIMA2f3xId5s9MgZqL-CahFozXw&s',
+                      route: '',
+                      price: '8',
+                      ratings: 4.5,
+                    ),
+                    SizedBox(width: 10.0,),
+                    ParkingSlot(
+                      title: 'Another Parking Slot',
+                      description: 'Hi World',
+                      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8H0K9Jmpmgw7MfuupIMA2f3xId5s9MgZqL-CahFozXw&s',
+                      route: '',
+                      price: '10',
+                      ratings: 4.2,
+                    ),
+                    // Add more ParkingSlot widgets as needed
+                  ],
                 ),
               ),
               
