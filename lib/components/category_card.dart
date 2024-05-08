@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../components/bottom_navigation.dart';
 
 class CategoryCard extends StatelessWidget {
   final String title;

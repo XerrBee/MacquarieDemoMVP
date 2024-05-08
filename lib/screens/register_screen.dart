@@ -1,70 +1,73 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class LoginPage extends StatefulWidget {
-  LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  final emailController = TextEditingController();
+class _RegisterPageState extends State<RegisterPage> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
 
-  final passwordController = TextEditingController();
-
-  void signIn() async {
-
+  void signUp() async {
     showDialog(
       context: context,
       builder: (context) {
         return const Center(child: CircularProgressIndicator());
-      }
+      },
     );
 
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: emailController.text,
-      password: passwordController.text,
-    );
-    Navigator.pop(context);
+      if (passwordController.text != confirmPasswordController.text) {
+        showError(context, "Passwords do not match.");
+        return;
+      }
+
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+      // Registration successful, navigate to another screen or perform any other action
+      Navigator.pushReplacementNamed(context, '/home');
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
-      if(e.code == 'user-not-found') {
-        noUser(context);
-      } else if(e.code == 'wrong-password') {
-        wrongPassword(context);
+      if (e.code == 'weak-password') {
+        print("Weak password!");
+      } else if (e.code == 'email-already-in-use') {
+        print("Email already in use!");
       }
     }
   }
 
-  void noUser(context) {
+  void showError(BuildContext context, String errorString) {
     showDialog(
       context: context,
       builder: (context) {
-        return const AlertDialog(
-          title: Text('No user'),
+        return AlertDialog(
+          title: Text("Error"),
+          content: Text(errorString),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('OK'),
+            ),
+          ],
         );
       },
     );
   }
 
-  void wrongPassword(context) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return const AlertDialog(
-          title: Text('wrong password.'),
-        );
-      },
-    );
-  }
-
-  @override 
+  @override
   Widget build(BuildContext context) {
-   return Scaffold(
+    return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       body: SingleChildScrollView(
         child: Container(
@@ -75,8 +78,8 @@ class _LoginPageState extends State<LoginPage> {
             children: <Widget>[
               const SizedBox(height: 100.0),
               Center(
-                  child: Text(
-                  'Login',
+                child: Text(
+                  'Register',
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.primary,
                     fontSize: 30.0,
@@ -143,8 +146,8 @@ class _LoginPageState extends State<LoginPage> {
                     border: Border.all(color: Colors.grey.withOpacity(0.3), width: 2),
                   ),
                   child: TextFormField(
-                    obscureText: true,
                     controller: passwordController,
+                    obscureText: true,
                     decoration: const InputDecoration(
                       hintText: '**************',
                       contentPadding: EdgeInsets.symmetric(horizontal: 20),
@@ -157,25 +160,47 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              const SizedBox(height: 30.0),
+              const SizedBox(height: 20.0),
               Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: () {
-                    // Navigate to forgot password screen
-                  },
-                  child: const Text(
-                    'Forgot your password?',
+                alignment: Alignment.centerLeft,
+                child: Container(
+                  margin: const EdgeInsets.all(8.0), // Add margin around the text
+                  child: Text(
+                    'Confirm your password',
                     style: TextStyle(
-                      color: Colors.blue,
+                      color: Theme.of(context).colorScheme.primary,
                       fontSize: 16.43,
                     ),
                   ),
                 ),
               ),
               Center(
+                child: Container(
+                  width: 352,
+                  height: 56.32,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(24),
+                    border: Border.all(color: Colors.grey.withOpacity(0.3), width: 2),
+                  ),
+                  child: TextFormField(
+                    controller: confirmPasswordController,
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                      hintText: '**************',
+                      contentPadding: EdgeInsets.symmetric(horizontal: 20),
+                      border: InputBorder.none,
+                    ),
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 20.0),
+              Center(
                 child: ElevatedButton(
-                  onPressed: () => signIn(),
+                  onPressed: signUp,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
                     shape: RoundedRectangleBorder(
@@ -184,7 +209,7 @@ class _LoginPageState extends State<LoginPage> {
                     minimumSize: const Size(352, 56.32),
                   ),
                   child: const Text(
-                    'Login',
+                    'Register',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18.0,
@@ -198,10 +223,10 @@ class _LoginPageState extends State<LoginPage> {
                 child: TextButton(
                   onPressed: () {
                     // Navigate to Sign up/Register screen
-                    Navigator.pushNamed(context, '/register');
+                    Navigator.pushNamed(context, '/login');
                   },
                   child: const Text(
-                    'First time here? Sign Up',
+                    'Already have an account? Sign In',
                     style: TextStyle(
                       color: Colors.blue,
                       fontSize: 16.43,
@@ -209,42 +234,6 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              const Center(
-                child: Text(
-                  'or',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16.43,
-                    fontWeight: FontWeight.bold
-                  ),
-                )
-              ),
-              Center(
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/home'); // Navigate to '/home' route
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(17.6),
-                      side: BorderSide(color: Colors.grey.withOpacity(0.5), width: 2), // Add border
-                    ),
-                    minimumSize: const Size(352, 56.32),
-                    shadowColor: Colors.grey.withOpacity(0.5),
-                    elevation: 1,
-                  ),
-                  child: const Text(
-                    'Continue with Google',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18.0,
-                    ),
-                  ),
-                ),
-              ),
-
-              // Add Continue with Google here
             ],
           ),
         ),

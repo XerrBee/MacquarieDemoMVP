@@ -12,6 +12,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import 'screens/register_screen.dart';
+
 
 
 void main() async {
@@ -39,8 +41,9 @@ class MyApp extends StatelessWidget {
       theme: Provider.of<ThemeProvider>(context).themeData,
       home: AuthPage(),
       routes: {
+        '/login': (context) => LoginPage(),
         '/home': (context) => const HomePage(),
-        // '/register': (context) => const RegisterPage(),
+        '/register': (context) => RegisterPage(),
         '/profile': (context) => const ProfilePage(),
         '/carpark': (context) => const CarParkPage(),
         '/shoppingcart': (context) => ShoppingCartPage(),
