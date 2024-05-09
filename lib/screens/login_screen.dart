@@ -4,7 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginPage extends StatefulWidget {
-  LoginPage({super.key});
+  final Function()? onTap;
+  LoginPage({super.key, required this.onTap});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -33,25 +34,26 @@ class _LoginPageState extends State<LoginPage> {
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
       if(e.code == 'user-not-found') {
-        noUser(context);
+        showErrorMessage("No user!");
       } else if(e.code == 'wrong-password') {
-        wrongPassword(context);
+        wrongPassword();
       }
     }
   }
 
-  void noUser(context) {
+  void showErrorMessage(String message) {
     showDialog(
       context: context,
       builder: (context) {
-        return const AlertDialog(
-          title: Text('No user'),
+        return AlertDialog(
+          backgroundColor: Colors.deepPurple,
+          title: Center(child: Text(message, style: const TextStyle(color: Colors.white)),),
         );
       },
     );
   }
 
-  void wrongPassword(context) {
+  void wrongPassword() {
     showDialog(
       context: context,
       builder: (context) {
@@ -169,6 +171,7 @@ class _LoginPageState extends State<LoginPage> {
                     style: TextStyle(
                       color: Colors.blue,
                       fontSize: 16.43,
+                      fontWeight: FontWeight.bold, // Make the text bold
                     ),
                   ),
                 ),
@@ -195,16 +198,14 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 20.0),
               Center(
-                child: TextButton(
-                  onPressed: () {
-                    // Navigate to Sign up/Register screen
-                    Navigator.pushNamed(context, '/register');
-                  },
-                  child: const Text(
+                child: GestureDetector(
+                  onTap: widget.onTap,
+                  child: Text(
                     'First time here? Sign Up',
                     style: TextStyle(
                       color: Colors.blue,
                       fontSize: 16.43,
+                      fontWeight: FontWeight.bold, // Make the text bold
                     ),
                   ),
                 ),
@@ -243,8 +244,6 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-
-              // Add Continue with Google here
             ],
           ),
         ),

@@ -41,9 +41,9 @@ class MyApp extends StatelessWidget {
       theme: Provider.of<ThemeProvider>(context).themeData,
       home: AuthPage(),
       routes: {
-        '/login': (context) => LoginPage(),
+        // '/login': (context) => LoginPage(onTap: () {  },),
         '/home': (context) => const HomePage(),
-        '/register': (context) => RegisterPage(),
+        // '/register': (context) => RegisterPage(onTap: () {  },),
         '/profile': (context) => const ProfilePage(),
         '/carpark': (context) => const CarParkPage(),
         '/shoppingcart': (context) => ShoppingCartPage(),

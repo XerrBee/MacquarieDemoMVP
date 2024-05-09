@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+  final Function()? onTap;
+  const RegisterPage({super.key, required this.onTap});
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
@@ -220,16 +221,14 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               const SizedBox(height: 20.0),
               Center(
-                child: TextButton(
-                  onPressed: () {
-                    // Navigate to Sign up/Register screen
-                    Navigator.pushNamed(context, '/login');
-                  },
-                  child: const Text(
+                child: GestureDetector(
+                  onTap: widget.onTap,
+                  child: Text(
                     'Already have an account? Sign In',
                     style: TextStyle(
                       color: Colors.blue,
                       fontSize: 16.43,
+                      fontWeight: FontWeight.bold, // Make the text bold
                     ),
                   ),
                 ),
