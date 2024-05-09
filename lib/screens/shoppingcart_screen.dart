@@ -28,6 +28,14 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
     }
   }
 
+  void _removeItemFromCart(int index) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      bookedSlots.removeAt(index);
+      prefs.setStringList('bookedSlots', bookedSlots.map((slot) => json.encode(slot)).toList());
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,35 +43,108 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
         title: Text('Shopping Cart'),
       ),
       body: SingleChildScrollView(
+        padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             if (bookedSlots.isNotEmpty)
               Column(
-                children: bookedSlots.map((slot) {
-                  return Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Title: ${slot['title']}',
-                          style: TextStyle(fontSize: 24),
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          'Description: ${slot['description']}',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          'Price: ${slot['price']}',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        SizedBox(height: 8),
-                        // Display other details as needed
-                        // You can also display the image here
-                      ],
+                children: bookedSlots.asMap().entries.map((entry) {
+                  final int index = entry.key;
+                  final Map<String, dynamic> slot = entry.value;
+                  return GestureDetector(
+                    onTap: () {
+                      // Do something when item is tapped
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(bottom: 16.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Theme.of(context).colorScheme.surface,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Theme.of(context).colorScheme.secondary,
+                            spreadRadius: 2,
+                            blurRadius: 9,
+                            offset: const Offset(0, 3),
+                          )
+                        ],
+                      ),
+                      child: Row(
+                        children: [
+                          // Image with padding
+                          Padding(
+                            padding: EdgeInsets.all(8),
+                            child: Container(
+                              width: 100,
+                              height: 90,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15.0),
+                                image: DecorationImage(
+                                  image: NetworkImage(slot['imageUrl']),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
+                          // Text
+                          Expanded(
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 12),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    '${slot['title']}',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FontStyle.italic,
+                                      color: Theme.of(context).colorScheme.primary,
+                                    ),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Text(
+                                    '${slot['description']}',
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: Theme.of(context).colorScheme.onSurface,
+                                    ),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Text(
+                                    '\$${slot['price']}',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: Theme.of(context).colorScheme.primary,
+                                    ),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Row(
+                                    children: [
+                                      Icon(Icons.star, color: Colors.yellow),
+                                      SizedBox(width: 4),
+                                      Text(
+                                        '${slot['ratings']}',
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          color: Theme.of(context).colorScheme.onSurface,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.delete),
+                            onPressed: () => _removeItemFromCart(index),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 }).toList(),
