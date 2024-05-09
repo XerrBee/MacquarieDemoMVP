@@ -35,7 +35,7 @@ class _RegisterPageState extends State<RegisterPage> {
         password: passwordController.text,
       );
       // Registration successful, navigate to another screen or perform any other action
-      Navigator.pushReplacementNamed(context, '/home');
+      Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
       if (e.code == 'weak-password') {
