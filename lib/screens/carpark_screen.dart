@@ -4,9 +4,14 @@ import 'package:flutter/material.dart';
 import '../components/bottom_navigation.dart';
 import '../components/category_card.dart';
 
-class CarParkPage extends StatelessWidget {
+class CarParkPage extends StatefulWidget {
   const CarParkPage({Key? key}) : super(key: key);
 
+  @override
+  _CarParkPageState createState() => _CarParkPageState();
+}
+
+class _CarParkPageState extends State<CarParkPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,12 +50,11 @@ class CarParkPage extends StatelessWidget {
                   ),
                   child: Row(
                     children: [
-                      // Image with padding
                       Padding(
-                        padding: EdgeInsets.all(8), // Adjust padding as needed
+                        padding: EdgeInsets.all(8),
                         child: Container(
-                          width: 313, // Adjust the width of the image container
-                          height: 90, // Adjust the height of the image container
+                          width: 313,
+                          height: 90, 
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15.0),
                             image: DecorationImage(
@@ -85,13 +89,13 @@ class CarParkPage extends StatelessWidget {
               Text(
                 'Parking Slot',
                 style: TextStyle(
-                fontSize: 30, // Adjust the size as needed
-                fontWeight: FontWeight.bold, // Make it bold
-                color: Theme.of(context).colorScheme.primary, // Choose the color you prefer
+                fontSize: 30,
+                fontWeight: FontWeight.bold, 
+                color: Theme.of(context).colorScheme.primary, 
                 ),
               ),
                Container(
-                height: 260, // Adjust the height as needed
+                height: 260, 
                 color: Theme.of(context).colorScheme.surface, // Set the background color
                 child: ListView(
                   padding: EdgeInsets.symmetric(horizontal: 10.0), // Add padding
@@ -114,7 +118,6 @@ class CarParkPage extends StatelessWidget {
                       price: '10',
                       ratings: 4.2,
                     ),
-                    // Add more ParkingSlot widgets as needed
                   ],
                 ),
               ),

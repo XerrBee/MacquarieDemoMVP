@@ -52,6 +52,9 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                 children: bookedSlots.asMap().entries.map((entry) {
                   final int index = entry.key;
                   final Map<String, dynamic> slot = entry.value;
+                  // Calculate total price
+                  double totalPrice = double.parse(slot['price']) * (slot['duration'] ?? 1);
+
                   return GestureDetector(
                     onTap: () {
                       // Do something when item is tapped
@@ -112,15 +115,28 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                                       color: Theme.of(context).colorScheme.onSurface,
                                     ),
                                   ),
-                                  SizedBox(height: 4),
-                                  Text(
-                                    '\$${slot['price']}',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      color: Theme.of(context).colorScheme.primary,
+                                  if (slot['duration'] != null) // Show duration and total price if available
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        SizedBox(height: 4),
+                                        Text(
+                                          'Duration: ${slot['duration']} hour${slot['duration'] == 1 ? '' : 's'}',
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            color: Theme.of(context).colorScheme.onSurface,
+                                          ),
+                                        ),
+                                        SizedBox(height: 4),
+                                        Text(
+                                          'Total Price: \$${totalPrice.toStringAsFixed(2)}',
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            color: Theme.of(context).colorScheme.onSurface,
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                  ),
                                   SizedBox(height: 4),
                                   Row(
                                     children: [

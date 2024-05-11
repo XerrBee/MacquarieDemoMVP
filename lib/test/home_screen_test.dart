@@ -16,4 +16,11 @@ void main() {
     // Verify that the widget renders without throwing any errors
     expect(tester.takeException(), isNull);
   });
+  testWidgets('Verify presence of search bar', (WidgetTester tester) async {
+    await tester.pumpWidget(MaterialApp(
+      home: HomePage(),
+    ));
+
+    expect(find.byType(TextFormField), findsOneWidget);
+  });
 }

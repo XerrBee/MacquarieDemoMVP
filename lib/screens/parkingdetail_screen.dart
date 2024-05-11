@@ -1,11 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:http/src/mock_client.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../components/bottom_navigation.dart';
 
-class ParkingSlotDetailScreen extends StatelessWidget {
+class ParkingSlotDetailScreen extends StatefulWidget {
   final String title;
   final String description;
   final String price;
@@ -17,27 +18,39 @@ class ParkingSlotDetailScreen extends StatelessWidget {
     required this.description,
     required this.price,
     required this.imageUrl,
-    required this.ratings,
+    required this.ratings
   });
+
+  @override
+  _ParkingSlotDetailScreenState createState() => _ParkingSlotDetailScreenState();
+}
+
+class _ParkingSlotDetailScreenState extends State<ParkingSlotDetailScreen> {
+  int _selectedDuration = 1; // Default duration
 
   Future<void> _bookSlot(BuildContext context) async {
     // Save data to local storage
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
+    // Calculate total price based on duration
+    double totalPrice = double.parse(widget.price) * _selectedDuration;
+
     List<String> bookedSlotsJson = prefs.getStringList('bookedSlots') ?? [];
     Map<String, dynamic> slotDetails = {
-      'title': title,
-      'description': description,
-      'price': price,
-      'imageUrl': imageUrl,
-      'ratings': ratings,
+      'title': widget.title,
+      'description': widget.description,
+      'price': widget.price,
+      'imageUrl': widget.imageUrl,
+      'ratings': widget.ratings,
+      'duration': _selectedDuration,
+      'totalPrice': totalPrice, // Add total price to slot details
     };
     bookedSlotsJson.add(json.encode(slotDetails));
 
     prefs.setStringList('bookedSlots', bookedSlotsJson);
 
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Slot booked')),
+      SnackBar(content: Text('Slot booked for $_selectedDuration hours. Total price: \$${totalPrice.toStringAsFixed(2)}')),
     );
   }
 
@@ -45,7 +58,7 @@ class ParkingSlotDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(widget.title),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -57,7 +70,7 @@ class ParkingSlotDetailScreen extends StatelessWidget {
                 bottomRight: Radius.circular(15),
               ),
               child: Image.network(
-                imageUrl,
+                widget.imageUrl,
                 width: double.infinity,
                 height: 200,
                 fit: BoxFit.cover,
@@ -71,7 +84,7 @@ class ParkingSlotDetailScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 20),
                     child: Text(
-                      title,
+                      widget.title,
                       style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.primary),
                     ),
                   ),
@@ -81,7 +94,7 @@ class ParkingSlotDetailScreen extends StatelessWidget {
                       Icon(Icons.star, color: Colors.yellow, size: 20),
                       SizedBox(width: 8),
                       Text(
-                        '$ratings',
+                        '${widget.ratings}',
                         style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.primary),
                       ),
                     ],
@@ -92,20 +105,42 @@ class ParkingSlotDetailScreen extends StatelessWidget {
                     child: Container(
                       margin: EdgeInsets.only(right: 30),
                       child: Text(
-                        '\$ $price',
+                        '\$ ${widget.price}',
                         style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
                   SizedBox(height: 16),
                   Text(
-                    description,
+                    widget.description,
                     style: TextStyle(fontSize: 18, color: Theme.of(context).colorScheme.primary),
                   ),
                   SizedBox(height: 16),
                   Text(
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ',
                     style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.primary),
+                  ),
+                  SizedBox(height: 16),
+                  Row(
+                    children: [
+                      Text('Select Duration:', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                      SizedBox(width: 10),
+                      DropdownButton<int>(
+                        value: _selectedDuration,
+                        items: List.generate(
+                          24, // Number of hours
+                          (index) => DropdownMenuItem<int>(
+                            value: index + 1,
+                            child: Text('${index + 1} hour${index == 0 ? '' : 's'}'),
+                          ),
+                        ),
+                        onChanged: (value) {
+                          setState(() {
+                            _selectedDuration = value!;
+                          });
+                        },
+                      ),
+                    ],
                   ),
                 ],
               ),
