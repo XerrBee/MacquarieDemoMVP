@@ -97,7 +97,7 @@ class ParkingSlot extends StatelessWidget {
                           description,
                           style: TextStyle(
                             fontSize: 14,
-                            color: Theme.of(context).colorScheme.onSurface,
+                            color: Theme.of(context).colorScheme.primary,
                           ),
                         ),
                       ),

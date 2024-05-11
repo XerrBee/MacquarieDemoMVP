@@ -68,35 +68,44 @@ class ParkingSlotDetailScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    title,
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.primary),
-                  ),
-                  SizedBox(height: 8),
-                  Text(
-                    description,
-                    style: TextStyle(fontSize: 18, color: Theme.of(context).colorScheme.primary),
-                  ),
-                  SizedBox(height: 8),
-                  Text(
-                    'Price: \$ $price',
-                    style: TextStyle(fontSize: 18, color: Theme.of(context).colorScheme.primary),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: Text(
+                      title,
+                      style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.primary),
+                    ),
                   ),
                   SizedBox(height: 8),
                   Row(
                     children: [
-                      Icon(Icons.star, color: Colors.yellow),
+                      Icon(Icons.star, color: Colors.yellow, size: 20),
                       SizedBox(width: 8),
                       Text(
                         '$ratings',
-                        style: TextStyle(fontSize: 18, color: Theme.of(context).colorScheme.primary),
+                        style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.primary),
                       ),
                     ],
                   ),
                   SizedBox(height: 16),
-                  ElevatedButton(
-                    onPressed: () => _bookSlot(context),
-                    child: Text('Book this slot'),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Container(
+                      margin: EdgeInsets.only(right: 30),
+                      child: Text(
+                        '\$ $price',
+                        style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 16),
+                  Text(
+                    description,
+                    style: TextStyle(fontSize: 18, color: Theme.of(context).colorScheme.primary),
+                  ),
+                  SizedBox(height: 16),
+                  Text(
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ',
+                    style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.primary),
                   ),
                 ],
               ),
@@ -105,6 +114,30 @@ class ParkingSlotDetailScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigation(),
+      floatingActionButton: Align(
+        alignment: Alignment.bottomCenter,
+        child: Padding(
+          padding: EdgeInsets.only(bottom: 20, left: 20),
+          child: ElevatedButton(
+            onPressed: () => _bookSlot(context),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.black,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(17.6),
+              ),
+              minimumSize: const Size(352, 56.32),
+            ),
+            child: const Text(
+              'Book this slot',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
