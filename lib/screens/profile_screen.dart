@@ -14,7 +14,8 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   late bool _isDarkMode;
-  final user = FirebaseAuth.instance.currentUser!;
+  final user = FirebaseAuth.instance.currentUser != null ? FirebaseAuth.instance.currentUser! : null;
+
 
   @override 
   void initState() {
@@ -52,19 +53,19 @@ class _ProfilePageState extends State<ProfilePage> {
                 children: <Widget>[
                   CircleAvatar(
                     radius: 40,
-                    backgroundImage: NetworkImage(user.photoURL ?? ''),
+                    backgroundImage: NetworkImage(user?.photoURL ?? ''),
                   ),
                   SizedBox(width: 20),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        user.displayName ?? 'User',
+                        user?.displayName ?? 'User',
                         style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.primary),
                       ),
                       SizedBox(height: 5),
                       Text(
-                        user.email ?? '',
+                        user?.email ?? '',
                         style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.primary),
                       ),
                     ],

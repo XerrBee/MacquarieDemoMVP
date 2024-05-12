@@ -13,7 +13,6 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
-
   final passwordController = TextEditingController();
 
   void signIn() async {
@@ -34,33 +33,18 @@ class _LoginPageState extends State<LoginPage> {
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
       if(e.code == 'user-not-found') {
-        showErrorMessage("No user!");
+        showErrorMessage(context, "No user!");
       } else if(e.code == 'wrong-password') {
-        wrongPassword();
+        showErrorMessage(context, "Wrong password!");
       }
     }
   }
 
-  void showErrorMessage(String message) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          backgroundColor: Colors.deepPurple,
-          title: Center(child: Text(message, style: const TextStyle(color: Colors.white)),),
-        );
-      },
-    );
-  }
-
-  void wrongPassword() {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return const AlertDialog(
-          title: Text('wrong password.'),
-        );
-      },
+  void showErrorMessage(BuildContext context, String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+      ),
     );
   }
 
