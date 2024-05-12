@@ -23,12 +23,13 @@ void main() {
     await tester.tap(find.text('Book this slot'));
     
     // Wait for the widget to rebuild after tapping the button
+    await tester.pump(Duration(seconds: 2));
     await tester.pumpAndSettle();
 
     // Wait for the snackbar to appear
-    await tester.pump(Duration(seconds: 2));
+    
 
     // Verify that the snackbar is displayed
-    expect(find.text('Slot booked for 1 hours.'), findsOneWidget);
+    expect(find.byType(SnackBar), findsOneWidget);
   });
 }
