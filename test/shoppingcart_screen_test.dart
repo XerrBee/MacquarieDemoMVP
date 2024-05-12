@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:mockito/mockito.dart';
 
-import '../screens/shoppingcart_screen.dart';
+import '../lib/screens/shoppingcart_screen.dart';
 
 class MockSharedPreferences extends Mock implements SharedPreferences {}
 

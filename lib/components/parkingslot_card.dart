@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-
 import '../screens/parkingdetail_screen.dart';
 
 class ParkingSlot extends StatelessWidget {
   final String title;
   final String description;
   final String price;
-  final String imageUrl;
+  final String imagePath;
   final double ratings;
 
   const ParkingSlot({
     required this.title,
     required this.description,
     required this.price,
-    required this.imageUrl,
+    required this.imagePath,
     required this.ratings,
   });
 
@@ -28,7 +27,7 @@ class ParkingSlot extends StatelessWidget {
               title: title,
               description: description,
               price: price,
-              imageUrl: imageUrl,
+              imagePath: imagePath, // Passing imagePath to the detail screen
               ratings: ratings,
             ),
           ),
@@ -62,7 +61,7 @@ class ParkingSlot extends StatelessWidget {
                   topRight: Radius.circular(15),
                 ),
                 image: DecorationImage(
-                  image: NetworkImage(imageUrl),
+                  image: AssetImage(imagePath), // Using local image asset
                   fit: BoxFit.cover,
                 ),
               ),
@@ -137,4 +136,3 @@ class ParkingSlot extends StatelessWidget {
     );
   }
 }
-

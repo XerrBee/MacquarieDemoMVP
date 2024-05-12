@@ -4,14 +4,9 @@ import 'package:flutter/material.dart';
 import '../components/bottom_navigation.dart';
 import '../components/category_card.dart';
 
-class CarParkPage extends StatefulWidget {
+class CarParkPage extends StatelessWidget {
   const CarParkPage({Key? key}) : super(key: key);
 
-  @override
-  _CarParkPageState createState() => _CarParkPageState();
-}
-
-class _CarParkPageState extends State<CarParkPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,7 +99,7 @@ class _CarParkPageState extends State<CarParkPage> {
                     ParkingSlot(
                       title: 'Central Courtyard',
                       description: 'Good park',
-                      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8H0K9Jmpmgw7MfuupIMA2f3xId5s9MgZqL-CahFozXw&s',
+                      imagePath: 'assets/mqparking.jpg',
                       
                       price: '8',
                       ratings: 4.5,
@@ -113,7 +108,7 @@ class _CarParkPageState extends State<CarParkPage> {
                     ParkingSlot(
                       title: 'Another Parking Slot',
                       description: 'Hi World',
-                      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8H0K9Jmpmgw7MfuupIMA2f3xId5s9MgZqL-CahFozXw&s',
+                      imagePath: 'assets/mqparking.jpg',
                       
                       price: '10',
                       ratings: 4.2,

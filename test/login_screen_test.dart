@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mockito/mockito.dart'; // Import mockito
 
-import '../screens/login_screen.dart';
+import '../lib/screens/login_screen.dart';
 
 // Create a mock FirebaseAuth instance
 class MockFirebaseAuth extends Mock implements FirebaseAuth {}

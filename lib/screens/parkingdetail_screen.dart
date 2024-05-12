@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:http/src/mock_client.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../components/bottom_navigation.dart';
@@ -10,15 +9,15 @@ class ParkingSlotDetailScreen extends StatefulWidget {
   final String title;
   final String description;
   final String price;
-  final String imageUrl;
+  final String imagePath;
   final double ratings;
 
   const ParkingSlotDetailScreen({
     required this.title,
     required this.description,
     required this.price,
-    required this.imageUrl,
-    required this.ratings
+    required this.imagePath,
+    required this.ratings,
   });
 
   @override
@@ -40,7 +39,7 @@ class _ParkingSlotDetailScreenState extends State<ParkingSlotDetailScreen> {
       'title': widget.title,
       'description': widget.description,
       'price': widget.price,
-      'imageUrl': widget.imageUrl,
+      'imagePath': widget.imagePath,
       'ratings': widget.ratings,
       'duration': _selectedDuration,
       'totalPrice': totalPrice, // Add total price to slot details
@@ -69,8 +68,8 @@ class _ParkingSlotDetailScreenState extends State<ParkingSlotDetailScreen> {
                 bottomLeft: Radius.circular(15),
                 bottomRight: Radius.circular(15),
               ),
-              child: Image.network(
-                widget.imageUrl,
+              child: Image.asset(
+                widget.imagePath, 
                 width: double.infinity,
                 height: 200,
                 fit: BoxFit.cover,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../screens/register_screen.dart';
+import '../lib/screens/register_screen.dart';
 
 void main() {
   testWidgets('RegisterPage renders without error', (WidgetTester tester) async {
@@ -44,6 +44,7 @@ void main() {
     // Verify that only three text form fields are found
     expect(textFormFields, findsNWidgets(3));
   });
+
 
   // testWidgets('Tapping on "Already have an account? Sign In" triggers onTap callback', (WidgetTester tester) async {
   //     bool isTapped = false;

@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 class CategoryCard extends StatelessWidget {
   final String title;
-  final String imageUrl;
+  final String imagePath;
   final String route;
 
   const CategoryCard({
     required this.title,
-    required this.imageUrl,
+    required this.imagePath,
     required this.route,
   });
 
@@ -44,7 +44,7 @@ class CategoryCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                    image: NetworkImage(imageUrl),
+                    image: AssetImage(imagePath),
                     fit: BoxFit.cover,
                   ),
                 ),

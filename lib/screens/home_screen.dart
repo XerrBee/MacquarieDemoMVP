@@ -70,32 +70,32 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 34.0),
               const CategoryCard(
                 title: 'Coffee',
-                imageUrl:
-                    'https://media.istockphoto.com/id/1158013558/photo/cup-of-coffee-with-flowing-milk-on-wooden-background-overhead-shot.jpg?s=612x612&w=0&k=20&c=Eb5FAJtL1wT9Ong_kPDfL089MAbM7BJySpJfL8Kv978=',
+                imagePath:
+                    'assets/coffee.jpg',
                 route: '/coffee',
               ),
               SizedBox(height: 34.0),
               const CategoryCard(
                 title: 'Study Space',
-                imageUrl: 'https://students.mq.edu.au/__data/assets/image/0009/1175796/1cc-study-space-pink-lounge-900x600.jpg',
+                imagePath: 'assets/studyspace.jpg',
                 route: '/studyspace',
               ),
               SizedBox(height: 34.0),
               const CategoryCard(
                 title: 'Car Park',
-                imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDOAoheWgNDU2X_BFypbUqrNhmPD0m72Qifh6JVi8b0g&s',
+                imagePath: 'assets/carpark.jpg',
                 route: '/carpark',
               ),
               SizedBox(height: 34.0),
               const CategoryCard(
                 title: 'AskMQ',
-                imageUrl: 'https://images.shiksha.com/mediadata/images/1647317902phpCxEo6V.jpeg',
+                imagePath: 'assets/askmq.jpg',
                 route: '/askmq',
               ),
               SizedBox(height: 34.0),
               const CategoryCard(
                 title: 'Messaging App',
-                imageUrl: 'https://play-lh.googleusercontent.com/c5HiVEILwq4DqYILPwcDUhRCxId_R53HqV_6rwgJPC0j44IaVlvwASCi23vGQh5G3LIZ',
+                imagePath: 'assets/chat.png',
                 route: '/message',
               ),
             ],
