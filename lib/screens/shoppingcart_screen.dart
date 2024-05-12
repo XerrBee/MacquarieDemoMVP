@@ -36,11 +36,20 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
     });
   }
 
+  void _clearAllBookings() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      bookedSlots = [];
+      prefs.remove('bookedSlots'); // Remove the 'bookedSlots' key from SharedPreferences
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Shopping Cart'),
+        titleTextStyle: TextStyle(fontSize: 25.0, color: Theme.of(context).colorScheme.primary),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16.0),
@@ -112,7 +121,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                                     '${slot['description']}',
                                     style: TextStyle(
                                       fontSize: 14,
-                                      color: Theme.of(context).colorScheme.onSurface,
+                                      color: Theme.of(context).colorScheme.primary,
                                     ),
                                   ),
                                   if (slot['duration'] != null) // Show duration and total price if available
@@ -124,7 +133,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                                           'Duration: ${slot['duration']} hour${slot['duration'] == 1 ? '' : 's'}',
                                           style: TextStyle(
                                             fontSize: 14,
-                                            color: Theme.of(context).colorScheme.onSurface,
+                                            color: Theme.of(context).colorScheme.primary,
                                           ),
                                         ),
                                         SizedBox(height: 4),
@@ -132,7 +141,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                                           'Total Price: \$${totalPrice.toStringAsFixed(2)}',
                                           style: TextStyle(
                                             fontSize: 14,
-                                            color: Theme.of(context).colorScheme.onSurface,
+                                            color: Theme.of(context).colorScheme.primary,
                                           ),
                                         ),
                                       ],
@@ -146,7 +155,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                                         '${slot['ratings']}',
                                         style: TextStyle(
                                           fontSize: 14,
-                                          color: Theme.of(context).colorScheme.onSurface,
+                                          color: Theme.of(context).colorScheme.primary,
                                         ),
                                       ),
                                     ],
@@ -169,7 +178,26 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
               Center(
                 child: Text(
                   'No items in the shopping cart',
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 18, color: Theme.of(context).colorScheme.primary),
+                ),
+              ),
+            if (bookedSlots.isNotEmpty)
+              ElevatedButton(
+                onPressed: _clearAllBookings,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(17.6),
+                  ),
+                  minimumSize: const Size(352, 56.32),
+                ),
+                child: const Text(
+                  'Erase All Bookings',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
           ],

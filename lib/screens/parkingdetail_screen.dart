@@ -49,7 +49,7 @@ class _ParkingSlotDetailScreenState extends State<ParkingSlotDetailScreen> {
     prefs.setStringList('bookedSlots', bookedSlotsJson);
 
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Slot booked for $_selectedDuration hours. Total price: \$${totalPrice.toStringAsFixed(2)}')),
+      SnackBar(content: Text('Slot booked for $_selectedDuration hours. Total price: \$${totalPrice.toStringAsFixed(2)}', style: TextStyle(color: Colors.white),)),
     );
   }
 
