@@ -84,7 +84,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(15.0),
                                 image: DecorationImage(
-                                  image: NetworkImage(slot['imageUrl']),
+                                  image: AssetImage(slot['imagePath'] ?? 'assets/mock_image.jpg'),
                                   fit: BoxFit.cover,
                                 ),
                               ),

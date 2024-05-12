@@ -68,7 +68,7 @@ flutter:
     - assets/carpark.jpg
     - assets/studyspace.jpg
     - assets/mqparking.jpg
-    - test/assets/mock_image.jpg
+    - assets/mock_image.jpg
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
