@@ -58,6 +58,8 @@ class _ParkingSlotDetailScreenState extends State<ParkingSlotDetailScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        titleTextStyle: TextStyle(fontSize: 25.0,color: Theme.of(context).colorScheme.primary),
+        iconTheme: IconThemeData(color: Theme.of(context).colorScheme.primary),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -122,15 +124,15 @@ class _ParkingSlotDetailScreenState extends State<ParkingSlotDetailScreen> {
                   SizedBox(height: 16),
                   Row(
                     children: [
-                      Text('Select Duration:', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                      Text('Select Duration:', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.primary)),
                       SizedBox(width: 10),
                       DropdownButton<int>(
                         value: _selectedDuration,
                         items: List.generate(
-                          24, // Number of hours
+                          24, 
                           (index) => DropdownMenuItem<int>(
                             value: index + 1,
-                            child: Text('${index + 1} hour${index == 0 ? '' : 's'}'),
+                            child: Text('${index + 1} hour${index == 0 ? '' : 's'}', style: TextStyle(color: Theme.of(context).colorScheme.primary),),
                           ),
                         ),
                         onChanged: (value) {
