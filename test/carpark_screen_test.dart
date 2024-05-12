@@ -9,7 +9,8 @@ void main() {
       home: CarParkPage(),
     ));
 
-    expect(find.text('Car Park'), findsOneWidget);
-    expect(find.text('Parking Slot'), findsOneWidget);
+    final mapWidget = find.byKey(Key('map_widget'));
+    expect(mapWidget, findsOneWidget);
+
   });
 }

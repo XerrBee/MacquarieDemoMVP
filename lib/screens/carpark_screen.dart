@@ -29,6 +29,7 @@ class CarParkPage extends StatelessWidget {
                   // Navigator.pushNamed(context, route);
                 },
                 child: Container(
+                  key: Key('map_widget'),
                   width: 356,
                   height: 100,
                   decoration: BoxDecoration(

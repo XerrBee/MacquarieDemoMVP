@@ -165,7 +165,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                             ),
                           ),
                           IconButton(
-                            icon: Icon(Icons.delete),
+                            icon: Icon(Icons.delete, color: Theme.of(context).colorScheme.primary,),
                             onPressed: () => _removeItemFromCart(index),
                           ),
                         ],

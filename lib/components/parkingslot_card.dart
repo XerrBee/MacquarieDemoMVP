@@ -35,7 +35,7 @@ class ParkingSlot extends StatelessWidget {
       },
       child: Container(
         width: 235,
-        height: 234,
+        height: 232,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           color: Theme.of(context).colorScheme.surface,
@@ -61,7 +61,7 @@ class ParkingSlot extends StatelessWidget {
                   topRight: Radius.circular(15),
                 ),
                 image: DecorationImage(
-                  image: AssetImage(imagePath), // Using local image asset
+                  image: AssetImage(imagePath), 
                   fit: BoxFit.cover,
                 ),
               ),
@@ -76,12 +76,14 @@ class ParkingSlot extends StatelessWidget {
                     children: [
                       Icon(Icons.local_parking, color: Colors.blue),
                       SizedBox(width: 8),
-                      Text(
-                        title,
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Theme.of(context).colorScheme.primary,
+                      Expanded( // Wrap the text in Expanded widget
+                        child: Text(
+                          title,
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
                         ),
                       ),
                     ],
@@ -91,7 +93,7 @@ class ParkingSlot extends StatelessWidget {
                     children: [
                       Icon(Icons.text_format, color: Colors.blue),
                       SizedBox(width: 6),
-                      Expanded(
+                      Expanded( // Wrap the text in Expanded widget
                         child: Text(
                           description,
                           style: TextStyle(
