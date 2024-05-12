@@ -1,6 +1,6 @@
-import 'package:comp3130/components/parkingslot_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:comp3130/components/parkingslot_card.dart';
 import '../components/bottom_navigation.dart';
 import '../components/category_card.dart';
 
@@ -85,12 +85,12 @@ class CarParkPage extends StatelessWidget {
               Text(
                 'Parking Slot',
                 style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold, 
-                color: Theme.of(context).colorScheme.primary, 
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold, 
+                  color: Theme.of(context).colorScheme.primary, 
                 ),
               ),
-               Container(
+              Container(
                 height: 260, 
                 color: Theme.of(context).colorScheme.surface, // Set the background color
                 child: ListView(
@@ -101,7 +101,6 @@ class CarParkPage extends StatelessWidget {
                       title: 'Central Courtyard',
                       description: 'Good park',
                       imagePath: 'assets/mqparking.jpg',
-                      
                       price: '8',
                       ratings: 4.5,
                     ),
@@ -110,14 +109,96 @@ class CarParkPage extends StatelessWidget {
                       title: 'Another Parking Slot',
                       description: 'Hi World',
                       imagePath: 'assets/mqparking.jpg',
-                      
                       price: '10',
                       ratings: 4.2,
                     ),
                   ],
                 ),
               ),
-              
+              SizedBox(height: 20.0),
+              Text(
+                'FAQ',
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+              ),
+              SizedBox(height: 10.0),
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 10.0),
+                padding: EdgeInsets.all(15.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Theme.of(context).colorScheme.surface,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Theme.of(context).colorScheme.secondary,
+                      spreadRadius: 1,
+                      blurRadius: 6,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'How do I reserve a parking spot?',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                    ),
+                    SizedBox(height: 10.0),
+                    Text(
+                      'To reserve a parking spot, simply navigate to the parking slot you want to reserve and follow the instructions provided.',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 10.0),
+                padding: EdgeInsets.all(15.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Theme.of(context).colorScheme.surface,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Theme.of(context).colorScheme.secondary,
+                      spreadRadius: 1,
+                      blurRadius: 6,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'What payment methods do you accept?',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                    ),
+                    SizedBox(height: 10.0),
+                    Text(
+                      'We accept various payment methods including credit/debit cards, mobile wallets, and online payment platforms.',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
