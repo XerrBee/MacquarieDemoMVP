@@ -11,10 +11,7 @@ import 'screens/profile_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'screens/register_screen.dart';
-
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,10 +19,14 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
+    MultiProvider( // Wrap MaterialApp with MultiProvider
+      providers: [
+        ChangeNotifierProvider<ThemeProvider>(
+          create: (_) => ThemeProvider(),
+        ),
+      ],
       child: const MyApp(),
-    )
+    ),
   );
 }
 
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
         '/profile': (context) => const ProfilePage(),
         '/carpark': (context) => const CarParkPage(),
         '/shoppingcart': (context) => ShoppingCartPage(),
-      }
+      },
     );
   }
 }

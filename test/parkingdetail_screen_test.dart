@@ -23,4 +23,20 @@ void main() {
     expect(find.text('Book this slot'), findsOneWidget);
   });
 
+  testWidgets('Parking Slot Detail Screen - Duration Dropdown Test', (WidgetTester tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        home: ParkingSlotDetailScreen(
+          title: 'Sample Parking',
+          description: 'This is a sample parking slot.',
+          price: '10',
+          imagePath: 'assets/mock_image.jpg',
+          ratings: 4.5,
+        ),
+      ),
+    );
+    
+    expect(find.text("Select Duration:"), findsOneWidget);
+  });
+
 }

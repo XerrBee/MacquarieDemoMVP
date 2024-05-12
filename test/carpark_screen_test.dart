@@ -13,4 +13,18 @@ void main() {
     expect(mapWidget, findsOneWidget);
 
   });
+
+  testWidgets('CarParkPage FAQ Section Test', (WidgetTester tester) async {
+    await tester.pumpWidget(MaterialApp(
+      home: CarParkPage(),
+    ));
+
+    // Check the presence of FAQ section title
+    final faqTitle = find.text('FAQ');
+    expect(faqTitle, findsOneWidget);
+
+    // Check the presence of FAQ section content
+    final faqContent = find.text('How do I reserve a parking spot?');
+    expect(faqContent, findsOneWidget);
+  });
 }

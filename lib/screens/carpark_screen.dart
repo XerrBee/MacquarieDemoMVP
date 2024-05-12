@@ -92,7 +92,7 @@ class CarParkPage extends StatelessWidget {
               ),
               Container(
                 height: 260, 
-                color: Theme.of(context).colorScheme.surface, // Set the background color
+                color: Theme.of(context).colorScheme.background, // Set the background color
                 child: ListView(
                   padding: EdgeInsets.symmetric(horizontal: 10.0), // Add padding
                   scrollDirection: Axis.horizontal,
@@ -111,6 +111,14 @@ class CarParkPage extends StatelessWidget {
                       imagePath: 'assets/mqparking.jpg',
                       price: '10',
                       ratings: 4.2,
+                    ),
+                    SizedBox(width: 10.0,),
+                    ParkingSlot(
+                      title: 'Another Good Slot',
+                      description: 'Bye World',
+                      imagePath: 'assets/mqparking.jpg',
+                      price: '13',
+                      ratings: 4.9,
                     ),
                   ],
                 ),

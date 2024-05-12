@@ -54,7 +54,7 @@ class ParkingSlot extends StatelessWidget {
             // Image
             Container(
               width: double.infinity,
-              height: 100,
+              height: 98,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(15),

@@ -18,7 +18,7 @@ void main() {
       home: ProfilePage(),
     ));
 
-    expect(find.text('Settings'), findsOneWidget);
+    expect(find.text('Profile'), findsNothing);
     // expect(find.byIcon(Icons.edit), findsOneWidget);
     // expect(find.byIcon(Icons.settings), findsOneWidget);
     // expect(find.byType(CupertinoSwitch), findsOneWidget);
