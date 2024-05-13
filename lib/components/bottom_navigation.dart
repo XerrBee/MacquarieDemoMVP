@@ -30,8 +30,8 @@ class BottomNavigation extends StatelessWidget {
           //   topRight: Radius.circular(20), 
           // ),
           child: BottomNavigationBar(
-            backgroundColor: Theme.of(context).colorScheme.surface, // Set the background color of the bar
-            elevation: 0, // No elevation for the bar itself
+            backgroundColor: Theme.of(context).colorScheme.surface, 
+            elevation: 0, 
             onTap: (index) {
               // Navigate to different screens based on the tapped index
               switch (index) {
@@ -52,10 +52,6 @@ class BottomNavigation extends StatelessWidget {
                 icon: Icon(Icons.home),
                 label: 'Home',
               ),
-              // BottomNavigationBarItem(
-              //   icon: Icon(Icons.search),
-              //   label: '',
-              // ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.shopping_cart),
                 label: 'Cart',
