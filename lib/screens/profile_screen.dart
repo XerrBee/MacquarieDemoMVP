@@ -100,7 +100,6 @@ class _ProfilePageState extends State<ProfilePage> {
                         value: themeProvider.isDarkMode,
                         onChanged: (value) {
                           themeProvider.toggleTheme();
-                          // You can implement dark mode logic here
                         },
                       ),
                     ],

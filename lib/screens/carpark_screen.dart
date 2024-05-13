@@ -26,7 +26,7 @@ class CarParkPage extends StatelessWidget {
               const SizedBox(height: 10),
               GestureDetector(
                 onTap: () {
-                  // Navigator.pushNamed(context, route);
+                  // Possibly add a map functionality.
                 },
                 child: Container(
                   key: Key('map_widget'),

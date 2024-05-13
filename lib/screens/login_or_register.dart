@@ -2,6 +2,22 @@ import 'package:comp3130/screens/login_screen.dart';
 import 'package:comp3130/screens/register_screen.dart';
 import 'package:flutter/material.dart';
 
+abstract class PageToggler {
+  void togglePages();
+}
+
+// Implement the logic in a separate class
+class PageTogglerImpl implements PageToggler {
+  bool _showLoginPage = true;
+
+  bool get showLoginPage => _showLoginPage;
+
+  @override
+  void togglePages() {
+    _showLoginPage = !_showLoginPage;
+  }
+}
+
 class LoginOrRegisterPage extends StatefulWidget {
   const LoginOrRegisterPage({super.key});
 

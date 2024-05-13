@@ -44,6 +44,14 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
     });
   }
 
+  void removeItemFromCart(int index) async {
+  _removeItemFromCart(index);
+}
+
+void clearAllBookings() async {
+   _clearAllBookings();
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,7 +74,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
 
                   return GestureDetector(
                     onTap: () {
-                      // Do something when item is tapped
+                      // 
                     },
                     child: Container(
                       margin: EdgeInsets.only(bottom: 16.0),
@@ -84,7 +92,6 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                       ),
                       child: Row(
                         children: [
-                          // Image with padding
                           Padding(
                             padding: EdgeInsets.all(8),
                             child: Container(

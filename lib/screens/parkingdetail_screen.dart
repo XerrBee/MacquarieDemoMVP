@@ -27,12 +27,16 @@ class ParkingSlotDetailScreen extends StatefulWidget {
 class _ParkingSlotDetailScreenState extends State<ParkingSlotDetailScreen> {
   int _selectedDuration = 1; // Default duration
 
+  double _calculateTotalPrice() {
+    return double.parse(widget.price) * _selectedDuration;
+  }
+
   Future<void> _bookSlot(BuildContext context) async {
     // Save data to local storage
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
     // Calculate total price based on duration
-    double totalPrice = double.parse(widget.price) * _selectedDuration;
+    double totalPrice = _calculateTotalPrice();
 
     List<String> bookedSlotsJson = prefs.getStringList('bookedSlots') ?? [];
     Map<String, dynamic> slotDetails = {

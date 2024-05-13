@@ -25,10 +25,7 @@ void main() {
     // Wait for the widget to rebuild after tapping the button
     await tester.pump(Duration(seconds: 2));
     await tester.pumpAndSettle();
-
-    // Wait for the snackbar to appear
     
-
     // Verify that the snackbar is displayed
     expect(find.byType(SnackBar), findsOneWidget);
   });
