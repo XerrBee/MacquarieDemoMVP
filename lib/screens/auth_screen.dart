@@ -1,6 +1,5 @@
 import 'package:comp3130/screens/home_screen.dart';
 import 'package:comp3130/screens/login_or_register.dart';
-import 'package:comp3130/screens/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 

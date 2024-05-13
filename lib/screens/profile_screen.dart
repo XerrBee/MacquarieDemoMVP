@@ -78,14 +78,14 @@ class _ProfilePageState extends State<ProfilePage> {
                     leading: Icon(Icons.edit, color: Theme.of(context).colorScheme.primary),
                     title: Text('Edit Profile', style: TextStyle(fontSize: 18, color: Theme.of(context).colorScheme.primary)),
                     onTap: () {
-                      // Handle edit profile action
+                      // Possibly navigate to edit profile page
                     },
                   ),
                   ListTile(
                     leading: Icon(Icons.settings, color: Theme.of(context).colorScheme.primary),
                     title: Text('Settings', style: TextStyle(fontSize: 18, color: Theme.of(context).colorScheme.primary)),
                     onTap: () {
-                      // Handle settings action
+                      // Possibly navigate to Settings Page
                     },
                   ),
                   SizedBox(height: 30.0),

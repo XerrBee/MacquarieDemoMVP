@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:comp3130/components/parkingslot_card.dart';
 import '../components/bottom_navigation.dart';
-import '../components/category_card.dart';
 
 class CarParkPage extends StatelessWidget {
   const CarParkPage({Key? key}) : super(key: key);

@@ -17,11 +17,11 @@ void main() {
     });
 
     testWidgets('Initial state of LoginPage widget', (WidgetTester tester) async {
-      // Pump the LoginPage widget
+      
       await tester.pumpWidget(
         MaterialApp(
           home: LoginPage(
-            onTap: () {}, // Mock onTap callback
+            onTap: () {}, 
           ),
         ),
       );
@@ -38,25 +38,21 @@ void main() {
     });
 
     testWidgets('RegisterPage text fields are initially empty', (WidgetTester tester) async {
-      // Build the RegisterPage widget
+      
       await tester.pumpWidget(
         MaterialApp(
           home: LoginPage(
-            onTap: () {}, // Provide a mock onTap callback
+            onTap: () {},
           ),
         ),
       );
 
-      // Find all the text form fields
       final textFormFields = find.byType(TextFormField);
 
-      // Print out the details of each found text form field
       textFormFields.evaluate().forEach((element) {
         final widget = element.widget as TextFormField;
-        print('TextFormField found: key: ${widget.key}, controller: ${widget.controller}');
       });
 
-      // Verify that only three text form fields are found
       expect(textFormFields, findsNWidgets(2));
     });
   });
