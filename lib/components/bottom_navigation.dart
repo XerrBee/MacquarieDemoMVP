@@ -7,31 +7,23 @@ class BottomNavigation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Theme(
       data: Theme.of(context).copyWith(
-        canvasColor: Colors.white, 
+        canvasColor: Colors.white,
       ),
       child: Container(
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.3), 
-              spreadRadius: 1, 
-              blurRadius: 6, 
-              offset: Offset(0, 3), 
+              color: Colors.black.withOpacity(0.3),
+              spreadRadius: 1,
+              blurRadius: 6,
+              offset: Offset(0, 3),
             ),
           ],
-          // borderRadius: const BorderRadius.only(
-          //   topLeft: Radius.circular(20), 
-          //   topRight: Radius.circular(20), 
-          // ),
         ),
         child: ClipRRect(
-          // borderRadius: const BorderRadius.only(
-          //   topLeft: Radius.circular(20), 
-          //   topRight: Radius.circular(20), 
-          // ),
           child: BottomNavigationBar(
-            backgroundColor: Theme.of(context).colorScheme.surface, 
-            elevation: 0, 
+            backgroundColor: Theme.of(context).colorScheme.surface,
+            elevation: 0,
             onTap: (index) {
               // Navigate to different screens based on the tapped index
               switch (index) {
@@ -44,7 +36,6 @@ class BottomNavigation extends StatelessWidget {
                 case 2:
                   Navigator.pushNamed(context, '/profile');
                   break;
-                
               }
             },
             items: const [
@@ -64,7 +55,8 @@ class BottomNavigation extends StatelessWidget {
               return BottomNavigationBarItem(
                 icon: Theme(
                   data: Theme.of(context).copyWith(
-                    iconTheme: IconThemeData(color: Theme.of(context).colorScheme.primary), // Set icon color to black
+                    iconTheme: IconThemeData(
+                        color: Theme.of(context).colorScheme.primary),
                   ),
                   child: item.icon,
                 ),
@@ -77,4 +69,3 @@ class BottomNavigation extends StatelessWidget {
     );
   }
 }
-

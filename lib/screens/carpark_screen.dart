@@ -12,7 +12,10 @@ class CarParkPage extends StatelessWidget {
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         title: const Text("Car Park"),
-        titleTextStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0, color: Theme.of(context).colorScheme.primary),
+        titleTextStyle: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 30.0,
+            color: Theme.of(context).colorScheme.primary),
         iconTheme: IconThemeData(color: Theme.of(context).colorScheme.primary),
       ),
       body: SingleChildScrollView(
@@ -49,7 +52,7 @@ class CarParkPage extends StatelessWidget {
                         padding: EdgeInsets.all(8),
                         child: Container(
                           width: 313,
-                          height: 90, 
+                          height: 90,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15.0),
                             image: DecorationImage(
@@ -80,20 +83,23 @@ class CarParkPage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 20.0,),
+              SizedBox(
+                height: 20.0,
+              ),
               Text(
                 'Parking Slot',
                 style: TextStyle(
                   fontSize: 30,
-                  fontWeight: FontWeight.bold, 
-                  color: Theme.of(context).colorScheme.primary, 
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               ),
               Container(
-                height: 260, 
-                color: Theme.of(context).colorScheme.background, // Set the background color
+                height: 260,
+                color: Theme.of(context).colorScheme.background,
                 child: ListView(
-                  padding: EdgeInsets.symmetric(horizontal: 10.0), // Add padding
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 10.0), // Add padding
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
                     ParkingSlot(
@@ -103,7 +109,9 @@ class CarParkPage extends StatelessWidget {
                       price: '8',
                       ratings: 4.5,
                     ),
-                    SizedBox(width: 10.0,),
+                    SizedBox(
+                      width: 10.0,
+                    ),
                     ParkingSlot(
                       title: 'Another Parking Slot',
                       description: 'Hi World',
@@ -111,7 +119,9 @@ class CarParkPage extends StatelessWidget {
                       price: '10',
                       ratings: 4.2,
                     ),
-                    SizedBox(width: 10.0,),
+                    SizedBox(
+                      width: 10.0,
+                    ),
                     ParkingSlot(
                       title: 'Another Good Slot',
                       description: 'Bye World',

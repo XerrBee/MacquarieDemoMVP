@@ -92,7 +92,8 @@ class _RegisterPageState extends State<RegisterPage> {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
-                  margin: const EdgeInsets.all(8.0), // Add margin around the text
+                  margin:
+                      const EdgeInsets.all(8.0), // Add margin around the text
                   child: Text(
                     'Enter your email address',
                     style: TextStyle(
@@ -108,7 +109,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   height: 56.32,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(24),
-                    border: Border.all(color: Colors.grey.withOpacity(0.3), width: 2),
+                    border: Border.all(
+                        color: Colors.grey.withOpacity(0.3), width: 2),
                   ),
                   child: TextFormField(
                     controller: emailController,
@@ -128,7 +130,8 @@ class _RegisterPageState extends State<RegisterPage> {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
-                  margin: const EdgeInsets.all(8.0), // Add margin around the text
+                  margin:
+                      const EdgeInsets.all(8.0), // Add margin around the text
                   child: Text(
                     'Enter your password',
                     style: TextStyle(
@@ -144,7 +147,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   height: 56.32,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(24),
-                    border: Border.all(color: Colors.grey.withOpacity(0.3), width: 2),
+                    border: Border.all(
+                        color: Colors.grey.withOpacity(0.3), width: 2),
                   ),
                   child: TextFormField(
                     controller: passwordController,
@@ -165,7 +169,8 @@ class _RegisterPageState extends State<RegisterPage> {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
-                  margin: const EdgeInsets.all(8.0), // Add margin around the text
+                  margin:
+                      const EdgeInsets.all(8.0), // Add margin around the text
                   child: Text(
                     'Confirm your password',
                     style: TextStyle(
@@ -181,7 +186,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   height: 56.32,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(24),
-                    border: Border.all(color: Colors.grey.withOpacity(0.3), width: 2),
+                    border: Border.all(
+                        color: Colors.grey.withOpacity(0.3), width: 2),
                   ),
                   child: TextFormField(
                     controller: confirmPasswordController,

@@ -23,7 +23,9 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
     final List<String>? bookedSlotsJson = prefs.getStringList('bookedSlots');
     if (bookedSlotsJson != null) {
       setState(() {
-        bookedSlots = bookedSlotsJson.map((slotJson) => Map<String, dynamic>.from(json.decode(slotJson))).toList();
+        bookedSlots = bookedSlotsJson
+            .map((slotJson) => Map<String, dynamic>.from(json.decode(slotJson)))
+            .toList();
       });
     }
   }
@@ -32,7 +34,8 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       bookedSlots.removeAt(index);
-      prefs.setStringList('bookedSlots', bookedSlots.map((slot) => json.encode(slot)).toList());
+      prefs.setStringList(
+          'bookedSlots', bookedSlots.map((slot) => json.encode(slot)).toList());
     });
   }
 
@@ -40,24 +43,26 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       bookedSlots = [];
-      prefs.remove('bookedSlots'); // Remove the 'bookedSlots' key from SharedPreferences
+      prefs.remove(
+          'bookedSlots'); // Remove the 'bookedSlots' key from SharedPreferences
     });
   }
 
   void removeItemFromCart(int index) async {
-  _removeItemFromCart(index);
-}
+    _removeItemFromCart(index);
+  }
 
-void clearAllBookings() async {
-   _clearAllBookings();
-}
+  void clearAllBookings() async {
+    _clearAllBookings();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Shopping Cart'),
-        titleTextStyle: TextStyle(fontSize: 25.0, color: Theme.of(context).colorScheme.primary),
+        titleTextStyle: TextStyle(
+            fontSize: 25.0, color: Theme.of(context).colorScheme.primary),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16.0),
@@ -70,11 +75,12 @@ void clearAllBookings() async {
                   final int index = entry.key;
                   final Map<String, dynamic> slot = entry.value;
                   // Calculate total price
-                  double totalPrice = double.parse(slot['price']) * (slot['duration'] ?? 1);
+                  double totalPrice =
+                      double.parse(slot['price']) * (slot['duration'] ?? 1);
 
                   return GestureDetector(
                     onTap: () {
-                      // 
+                      // Perhaps features like applying discounts or adding to favorites could be added.
                     },
                     child: Container(
                       margin: EdgeInsets.only(bottom: 16.0),
@@ -100,7 +106,8 @@ void clearAllBookings() async {
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(15.0),
                                 image: DecorationImage(
-                                  image: AssetImage(slot['imagePath'] ?? 'assets/mock_image.jpg'),
+                                  image: AssetImage(slot['imagePath'] ??
+                                      'assets/mock_image.jpg'),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -109,7 +116,8 @@ void clearAllBookings() async {
                           // Text
                           Expanded(
                             child: Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 12),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 12),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -120,7 +128,8 @@ void clearAllBookings() async {
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
                                       fontStyle: FontStyle.italic,
-                                      color: Theme.of(context).colorScheme.primary,
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
                                     ),
                                   ),
                                   SizedBox(height: 4),
@@ -128,19 +137,24 @@ void clearAllBookings() async {
                                     '${slot['description']}',
                                     style: TextStyle(
                                       fontSize: 14,
-                                      color: Theme.of(context).colorScheme.primary,
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
                                     ),
                                   ),
-                                  if (slot['duration'] != null) // Show duration and total price if available
+                                  if (slot['duration'] !=
+                                      null) // Show duration and total price if available
                                     Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         SizedBox(height: 4),
                                         Text(
                                           'Duration: ${slot['duration']} hour${slot['duration'] == 1 ? '' : 's'}',
                                           style: TextStyle(
                                             fontSize: 14,
-                                            color: Theme.of(context).colorScheme.primary,
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .primary,
                                           ),
                                         ),
                                         SizedBox(height: 4),
@@ -148,7 +162,9 @@ void clearAllBookings() async {
                                           'Total Price: \$${totalPrice.toStringAsFixed(2)}',
                                           style: TextStyle(
                                             fontSize: 14,
-                                            color: Theme.of(context).colorScheme.primary,
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .primary,
                                           ),
                                         ),
                                       ],
@@ -162,7 +178,9 @@ void clearAllBookings() async {
                                         '${slot['ratings']}',
                                         style: TextStyle(
                                           fontSize: 14,
-                                          color: Theme.of(context).colorScheme.primary,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .primary,
                                         ),
                                       ),
                                     ],
@@ -172,7 +190,10 @@ void clearAllBookings() async {
                             ),
                           ),
                           IconButton(
-                            icon: Icon(Icons.delete, color: Theme.of(context).colorScheme.primary,),
+                            icon: Icon(
+                              Icons.delete,
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
                             onPressed: () => _removeItemFromCart(index),
                           ),
                         ],
@@ -185,7 +206,9 @@ void clearAllBookings() async {
               Center(
                 child: Text(
                   'No items in the shopping cart',
-                  style: TextStyle(fontSize: 18, color: Theme.of(context).colorScheme.primary),
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Theme.of(context).colorScheme.primary),
                 ),
               ),
             if (bookedSlots.isNotEmpty)

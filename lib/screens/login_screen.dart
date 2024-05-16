@@ -16,25 +16,23 @@ class _LoginPageState extends State<LoginPage> {
   final passwordController = TextEditingController();
 
   void signIn() async {
-
     showDialog(
-      context: context,
-      builder: (context) {
-        return const Center(child: CircularProgressIndicator());
-      }
-    );
+        context: context,
+        builder: (context) {
+          return const Center(child: CircularProgressIndicator());
+        });
 
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: emailController.text,
-      password: passwordController.text,
-    );
-    Navigator.pop(context);
+        email: emailController.text,
+        password: passwordController.text,
+      );
+      Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
-      if(e.code == 'user-not-found') {
+      if (e.code == 'user-not-found') {
         showErrorMessage(context, "No user!");
-      } else if(e.code == 'wrong-password') {
+      } else if (e.code == 'wrong-password') {
         showErrorMessage(context, "Wrong password!");
       }
     }
@@ -48,9 +46,9 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  @override 
+  @override
   Widget build(BuildContext context) {
-   return Scaffold(
+    return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       body: SingleChildScrollView(
         child: Container(
@@ -61,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
             children: <Widget>[
               const SizedBox(height: 100.0),
               Center(
-                  child: Text(
+                child: Text(
                   'Login',
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.primary,
@@ -74,7 +72,8 @@ class _LoginPageState extends State<LoginPage> {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
-                  margin: const EdgeInsets.all(8.0), // Add margin around the text
+                  margin:
+                      const EdgeInsets.all(8.0), // Add margin around the text
                   child: Text(
                     'Enter your email address',
                     style: TextStyle(
@@ -90,7 +89,8 @@ class _LoginPageState extends State<LoginPage> {
                   height: 56.32,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(24),
-                    border: Border.all(color: Colors.grey.withOpacity(0.3), width: 2),
+                    border: Border.all(
+                        color: Colors.grey.withOpacity(0.3), width: 2),
                   ),
                   child: TextFormField(
                     controller: emailController,
@@ -110,7 +110,7 @@ class _LoginPageState extends State<LoginPage> {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
-                  margin: const EdgeInsets.all(8.0), // Add margin around the text
+                  margin: const EdgeInsets.all(8.0),
                   child: Text(
                     'Enter your password',
                     style: TextStyle(
@@ -126,7 +126,8 @@ class _LoginPageState extends State<LoginPage> {
                   height: 56.32,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(24),
-                    border: Border.all(color: Colors.grey.withOpacity(0.3), width: 2),
+                    border: Border.all(
+                        color: Colors.grey.withOpacity(0.3), width: 2),
                   ),
                   child: TextFormField(
                     obscureText: true,
@@ -155,7 +156,7 @@ class _LoginPageState extends State<LoginPage> {
                     style: TextStyle(
                       color: Colors.blue,
                       fontSize: 16.43,
-                      fontWeight: FontWeight.bold, // Make the text bold
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
@@ -189,31 +190,32 @@ class _LoginPageState extends State<LoginPage> {
                     style: TextStyle(
                       color: Colors.blue,
                       fontSize: 16.43,
-                      fontWeight: FontWeight.bold, // Make the text bold
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
               ),
               const Center(
-                child: Text(
-                  'or',
-                  style: TextStyle(
+                  child: Text(
+                'or',
+                style: TextStyle(
                     color: Colors.black,
                     fontSize: 16.43,
-                    fontWeight: FontWeight.bold
-                  ),
-                )
-              ),
+                    fontWeight: FontWeight.bold),
+              )),
               Center(
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/home'); // Navigate to '/home' route
+                    Navigator.pushNamed(
+                        context, '/home'); // Navigate to '/home' route
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(17.6),
-                      side: BorderSide(color: Colors.grey.withOpacity(0.5), width: 2), // Add border
+                      side: BorderSide(
+                          color: Colors.grey.withOpacity(0.5),
+                          width: 2), // Add border
                     ),
                     minimumSize: const Size(352, 56.32),
                     shadowColor: Colors.grey.withOpacity(0.5),

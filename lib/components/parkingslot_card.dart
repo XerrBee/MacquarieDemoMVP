@@ -27,7 +27,7 @@ class ParkingSlot extends StatelessWidget {
               title: title,
               description: description,
               price: price,
-              imagePath: imagePath, // Passing imagePath to the detail screen
+              imagePath: imagePath,
               ratings: ratings,
             ),
           ),
@@ -61,7 +61,7 @@ class ParkingSlot extends StatelessWidget {
                   topRight: Radius.circular(15),
                 ),
                 image: DecorationImage(
-                  image: AssetImage(imagePath), 
+                  image: AssetImage(imagePath),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -76,7 +76,7 @@ class ParkingSlot extends StatelessWidget {
                     children: [
                       Icon(Icons.local_parking, color: Colors.blue),
                       SizedBox(width: 8),
-                      Expanded( // Wrap the text in Expanded widget
+                      Expanded(
                         child: Text(
                           title,
                           style: TextStyle(
@@ -93,7 +93,7 @@ class ParkingSlot extends StatelessWidget {
                     children: [
                       Icon(Icons.text_format, color: Colors.blue),
                       SizedBox(width: 6),
-                      Expanded( // Wrap the text in Expanded widget
+                      Expanded(
                         child: Text(
                           description,
                           style: TextStyle(
